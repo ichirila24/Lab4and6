@@ -361,10 +361,10 @@ def move(exits, direction):
     return rooms[exits[direction]]
 
 def game_over():
-
-	if current_room['name']=="your personal tutor's office" and len(current_room ['items']) > 0:
-		if current_room['items'][0]['id']=="biscuits":
-			gameover=True
+    global gameover
+    if current_room['name']=="your personal tutor's office" and len(current_room ['items']) > 0:
+        if current_room['items'][0]['id']=="biscuits":
+            gameover=True
 
 
 
