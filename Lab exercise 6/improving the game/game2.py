@@ -360,12 +360,24 @@ def move(exits, direction):
     # Next room to go to
     return rooms[exits[direction]]
 
+def game_over():
+
+	if current_room['name']=="your personal tutor's office" and len(current_room ['items']) > 0:
+		if current_room['items'][0]['id']=="biscuits":
+			gameover=True
+
+
+
+
+
+gameover=False
+
 
 # This is the entry point of our program
 def main():
 
     # Main game loop
-    while True:
+    while gameover==False:
         # Display game status (room description, inventory etc.)
         print_room(current_room)
         print_inventory_items(inventory)
@@ -375,6 +387,7 @@ def main():
 
         # Execute the player's command
         execute_command(command)
+        game_over()
 
 
 # Are we being run as a script? If so, run main().
